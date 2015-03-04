@@ -10,7 +10,7 @@ module.exports = transformTools.makeRequireTransform('requireTransform',
     {evaluateArguments: true},
     function(args, opts, cb) {
 
-        if (args[0] === 'pagejsify') {
+        if (args[0] === 'pageify') {
 
             var configPath = dir + '/pagejsify-config.js';
 
