@@ -38,11 +38,7 @@ module.exports = function(config) {
             out.push('        if (!context.init) {');
 
             if (hasJs) {
-
-                out.push('            if (!' + config.NS + '.pages) {');
-                out.push('              ' + config.NS + '.pages = {}');
-                out.push('            }');
-                out.push('            scriptLoader(\'' + config.PUBLIC_FOLDER + '/js/' + item.page + '.js' + '\', function (a, b) {');
+                out.push('            scriptLoader(\'' + config.PUBLIC_FOLDER + 'js/' + item.page + '.js' + '\', function (a, b) {');
                 out.push('               setupPage(\'' + item.page + '\', context);');
                 out.push('            });');
             }
