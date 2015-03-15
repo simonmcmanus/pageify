@@ -25,7 +25,7 @@ browserify:
 
 an example can be found:
 
-For lack of a simple example it can be seen in use at: 
+For lack of a simple example it can be seen in use at:
 
 github.com/simonmcmanus/woodford.today
 
