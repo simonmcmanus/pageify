@@ -9,10 +9,9 @@ var pagejsify = require('./index');
 module.exports = transformTools.makeRequireTransform('requireTransform',
     {evaluateArguments: true},
     function(args, opts, cb) {
-
         if (args[0] === 'pageify') {
 
-            var configPath = dir + '/pagejsify-config.js';
+            var configPath = dir + '/pageify-config.js';
 
             fs.exists(configPath, function(exists) {
                 var config;
@@ -21,12 +20,12 @@ module.exports = transformTools.makeRequireTransform('requireTransform',
                 } else {
                     config = require('./default-config');
                 }
+//                console.log('config', config);
                 var router = pagejsify(config);
-
                 cb(null, router);
             });
         } else {
-            return cb();
+            return cb(null);
         }
     }
 );
