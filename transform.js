@@ -12,7 +12,6 @@ module.exports = transformTools.makeRequireTransform('requireTransform',
         if (args[0] === 'pageify') {
 
             var configPath = dir + '/pageify-config.js';
-            console.log('cfp', configPath);
             fs.exists(configPath, function(exists) {
                 var config;
                 if (exists) {
@@ -20,11 +19,8 @@ module.exports = transformTools.makeRequireTransform('requireTransform',
                 } else {
                     config = require('./default-config');
                 }
-//                console.log('config', config);
-                var configPathComment = '//quango -> ' + configPath + ';';
                 var router = pagejsify(config);
-                cb(null, router +configPathComment);
-
+                cb(null, router);
             });
         } else {
             return cb(null);
