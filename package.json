@@ -1,6 +1,6 @@
 {
   "name": "pageify",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "Generate a page.js client side router.",
   "main": "transform.js",
   "scripts": {
