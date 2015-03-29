@@ -23,6 +23,13 @@ browserify:
 ---------
 
 
+
+# Config Options
+
+
+
+
+
 an example can be found:
 
 For lack of a simple example it can be seen in use at:

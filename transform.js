@@ -17,7 +17,7 @@ module.exports = transformTools.makeRequireTransform('requireTransform',
                 if (exists) {
                     config = require(configPath);
                 } else {
-                    config = require('./default-config');
+                    config = {};
                 }
                 var router = pagejsify(config);
                 cb(null, router);
