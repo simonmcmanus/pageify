@@ -3,7 +3,11 @@
 var fs = require('fs');
 var path = require('path');
 
+var schemaAssert = require('./joi-schema');
+
 module.exports = function(config) {
+
+    schemaAssert(config);
 
     var fileExists = function (file) {
         var location = path.join(file);
@@ -11,15 +15,17 @@ module.exports = function(config) {
     };
 
     var out = [
-        '\'use strict\';',
         'var page = require(\'page\');',
         'var scriptLoader = require(\'scriptjs\');',
         ''
     ];
 
+    // not entirely sure this check is necessary - sure pagejs covers this.
     out.push('if (history.pushState) {');
     out.push('');
-    out.push('  var setupPage=' + config.setupPage.toString());
+    if(typeof config.setupPage == 'function') {
+        out.push('  var setupPage=' + config.setupPage.toString());
+    }
 
     for (var mapping in config.mappings) {
 
@@ -27,7 +33,6 @@ module.exports = function(config) {
         var folder = config.PAGES_FOLDER + item.page + '/' + item.page;
         var jsFile = folder + config.JS_EXT;
         var cssFile = folder + config.CSS_EXT;
-
         var hasJs = fileExists(jsFile);
         var hasCss = fileExists(cssFile);
 
@@ -45,7 +50,7 @@ module.exports = function(config) {
             out.push('        } else {');
             out.push('            setupPage(\'' + item.page + '\', context);');
             out.push('        }');
-            if (hasCss) {
+            if (hasCss && config.STYLE_ID) {
                 out.push([
                     '        ',
                     'document.querySelector(\'link' + config.STYLE_ID + '\')',
@@ -57,9 +62,9 @@ module.exports = function(config) {
         }
     }
     out.push('');
-    out.push('document.addEventListener("DOMContentLoaded", function(event) { ');
-    out.push('    page();');
-    out.push('});');
+    out.push('    document.addEventListener("DOMContentLoaded", function(event) { ');
+    out.push('        page();');
+    out.push('    });');
     out.push('}');
     return out.join('\n');
 };

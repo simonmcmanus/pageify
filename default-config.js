@@ -1,6 +1,3 @@
-// overridable
-// 
-// 
 module.exports = {
   NS:'NS',
   PAGES_FOLDER: '../woodford.today/pages/',
