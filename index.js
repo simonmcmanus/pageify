@@ -27,9 +27,10 @@ module.exports = function(config) {
         out.push('  var setupPage=' + config.setupPage.toString());
     }
 
-    for (var mapping in config.mappings) {
+    Object.keys(config.mappings).forEach(function(mapping) {
 
         var item = config.mappings[mapping];
+
         var folder = config.PAGES_FOLDER + item.page + '/' + item.page;
         var jsFile = folder + config.JS_EXT;
         var cssFile = folder + config.CSS_EXT;
@@ -60,7 +61,7 @@ module.exports = function(config) {
             out.push('    });');
             out.push('');
         }
-    }
+    });
     out.push('');
     out.push('    document.addEventListener("DOMContentLoaded", function(event) { ');
     out.push('        page();');
