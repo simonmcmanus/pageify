@@ -1,6 +1,6 @@
 Generate a page.js client side router.
 
-
+[![Build Status](https://travis-ci.org/simonmcmanus/pageify.svg?branch=master)](https://travis-ci.org/simonmcmanus/pageify)
 
 with browserify:
 
