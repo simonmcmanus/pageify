@@ -50,3 +50,5 @@ It will look for a folder ./pages/home
 
 If there is a css, js (extenstions can be configured) file for that page the router will load the compiled version of that resource when the browser hits that route.
 
+
+Currently requires node 10 or above.
