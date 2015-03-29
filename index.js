@@ -9,6 +9,7 @@ module.exports = function(config) {
 
     schemaAssert(config);
 
+
     var fileExists = function (file) {
         var location = path.join(file);
         return fs.existsSync(location) || false;
