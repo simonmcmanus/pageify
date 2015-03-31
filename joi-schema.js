@@ -5,8 +5,8 @@ var schema = Joi.object().required().keys({
     PAGES_FOLDER: Joi.string().required().default('../woodford.today/pages/'),
     PUBLIC_FOLDER: Joi.string().required().default('/public/pages'),
     JS_EXT: Joi.string().required().default('.js'),
-    CSS_EXT: Joi.string().required().default('.css'),
-    STYLE_ID: Joi.string().required().default('#perPageStyle'),
+    CSS_EXT: Joi.string().required().default('.scss'),
+    STYLE_ID: Joi.string().default('#perPageStyle'),
     mappings: Joi.object().required()
 });
 
