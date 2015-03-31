@@ -69,32 +69,35 @@ When it generates the route for each page it checks to see if there is a file wi
 
 The id of the link tag which should be updated when the page changes.
 
-an example can be found:
+
+## MAPPINGS
+
+    default: {}
+
+    example: {
+        '/search': {
+            page: 'search',
+        }
+    }
+
+given this config it would look for the files: 
+
+    /pages/css/search.scss
+
+    /pages/js/search.js
+
+
+if those files exist, when the url is hit the browser should request: 
+
+    /public/pages/css/search.css
+
+    /public/pages/js/search.js
+
+______
+
 
 For lack of a simple example it can be seen in use at:
 
 github.com/simonmcmanus/woodford.today
-
-
-BAD EXPLAINATION FOLLOWS:
-
-It will look for a pageify-config.js file in the project root and then generate a router based of that file.
-
-
-So given a route-mappings.js file that looks like:
-
-
-```js
-module.exports = {
-    '/': {
-        page: 'home'
-    }
-};
-```
-
-It will look for a folder ./pages/home
-
-If there is a css, js (extenstions can be configured) file for that page the router will load the compiled version of that resource when the browser hits that route.
-
 
 Currently requires node 10 or above.
