@@ -6,6 +6,38 @@ Generate a page.js client side router from a pageify-config.js file.
 #example pageify-config.js
 
 
+  module.exports = {
+    PAGES_FOLDER: './pages/',
+    PUBLIC_FOLDER: '/',
+    PUBLIC_PAGES_FOLDER: '/pages/',
+    JS_EXT: '.js',
+    CSS_EXT: '.scss',
+    setupPage: function(page, context) {
+      // setup page here.
+    },
+    STYLE_ID: '#perPageStyle',
+    mappings: {
+      '/': {
+          page: 'home',
+          route: 'home'
+      },
+      '/seach': {
+          page: 'search',
+          route: 'search'
+      },
+
+      '/about': {
+          page: 'about',
+          route: 'about'
+      },
+      '/:line/:stationName': {
+          page: 'station',
+          route: 'station'
+
+      }
+    }
+  } ;
+
 with browserify:
 
 In your clientside js:
@@ -46,15 +78,31 @@ The folder in which you store your pages. Should contain a folder for each page.
 
 The folder from which the compiled js and css files will be served.
 
+in this case 'public'
+
     - public
+      - js
+        - shared.js
         - pages
-            - js
-                - search.js
-                - shared.js
-            - css
-                - shared.css
-                - search.css
-                - home.css
+          - search.js
+          - home.js
+      - css
+        - shared.css
+        - pages
+          - search.css
+          - home.css
+
+
+## PUBLIC_PAGES_FOLDER
+
+We build up the public url like so:
+
+### css
+  config.PUBLIC_FOLDER + 'css' + config.PUBLIC_PAGES_FOLDER + item.page + '.css'
+
+### js
+
+  config.PUBLIC_FOLDER + 'js' + config.PUBLIC_PAGES_FOLDER + item.page + '.js'
 
 
 ## JS_EXT
@@ -84,14 +132,14 @@ The id of the link tag which should be updated when the page changes.
         }
     }
 
-given this config it would look for the files: 
+given this config it would look for the files:
 
     /pages/css/search.scss
 
     /pages/js/search.js
 
 
-if those files exist, when the url is hit the browser should request: 
+if those files exist, when the url is hit the browser should request:
 
     /public/pages/css/search.css
 

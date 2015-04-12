@@ -30,6 +30,7 @@ describe('index.js - when required', function () {
             config = {
                 setupPage: function() {},
                 PUBLIC_FOLDER: '/public/',
+                PUBLIC_PAGES_FOLDER: '/pages/',
                 STYLE_ID: '#styletag',
                 PAGES_FOLDER: './non/existant',
                 JS_EXT: '.js',
@@ -109,11 +110,11 @@ describe('index.js - when required', function () {
             });
 
             it('should call setupPage with or without loading the page..', function() {
-                expect(out).to.include("if (!context.init) {\n            scriptLoader(\'/public/js/toast.js\', function (a, b) {\n               setupPage(\'toast\', context);\n            });\n        } else {\n            setupPage(\'toast\', context");
+                expect(out).to.include("if (!context.init) {\n            scriptLoader(\'/public/js/pages/toast.js\', function (a, b) {\n               setupPage(\'toast\', context);\n            });\n        } else {\n            setupPage(\'toast\', context");
             });
 
             it('should set the link tag (for style sheet) on the page change.', function() {
-                expect(out).to.include("  document.querySelector('link#styletag').href = '/public/css/toast.css';");
+                expect(out).to.include("  document.querySelector('link#styletag').href = '/public/css/pages/toast.css';");
             });
 
         });
