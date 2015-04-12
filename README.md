@@ -5,6 +5,7 @@ Generate a page.js client side router from a pageify-config.js file.
 
 #example pageify-config.js
 
+```js
 
   module.exports = {
     PAGES_FOLDER: './pages/',
@@ -37,6 +38,9 @@ Generate a page.js client side router from a pageify-config.js file.
       }
     }
   } ;
+
+
+```
 
 with browserify:
 
