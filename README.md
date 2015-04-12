@@ -1,6 +1,10 @@
-Generate a page.js client side router.
+Generate a page.js client side router from a pageify-config.js file.
 
 [![Build Status](https://travis-ci.org/simonmcmanus/pageify.svg?branch=master)](https://travis-ci.org/simonmcmanus/pageify)
+
+
+#example pageify-config.js
+
 
 with browserify:
 
