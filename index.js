@@ -2,7 +2,7 @@
 
 var pageify = require('./lib/pageify');
 
-var schema = require('./joi-schema');
+var schema = require('./lib/joi-schema');
 
 module.exports = function(config, callback) {
     schema.validate(config, function(error, config) {
