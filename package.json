@@ -2,10 +2,10 @@
   "name": "pageify",
   "version": "5.0.0",
   "description": "Generate a page.js client side router.",
-  "main": "transform.js",
+  "main": "lib/transform.js",
   "scripts": {
-    "test": "mocha",
-    "coverage": "istanbul cover _mocha"
+    "test": "mocha --recursive",
+    "coverage": "istanbul cover _mocha -- --recursive"
   },
   "bin": {
     "pagejsify": "./bin/pagejsify.js"

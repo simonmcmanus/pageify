@@ -13,6 +13,8 @@ Generate a page.js client side router from a pageify-config.js file.
     PUBLIC_PAGES_FOLDER: '/pages/',
     JS_EXT: '.js',
     CSS_EXT: '.scss',
+    require: true, // should it include require('page'), set to false if you are not using browserify/webpack.
+    scriptLoader: 'scriptjs', // package to use to load scripts into the browser. set to false if you wish to specify your own scriptLoader function();
     setupPage: function(page, context) {
       // setup page here.
     },
