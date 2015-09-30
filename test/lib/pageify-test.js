@@ -169,7 +169,7 @@ describe('pageify.js - when required', function () {
             });
 
             it('should call setupPage with or without loading the page..', function() {
-                expect(out).to.include("if (!context.init) {\n            scriptLoader(\'/public/js/pages/toast.js\', function (a, b) {\n               setupPage(\'toast\', context);\n            });\n        } else {\n            setupPage(\'toast\', context");
+                expect(out).to.include('if (!context.init) {\n            scriptLoader(\'/public/js/pages/toast.js\', function (a, b) {\n               setupPage(\'toast\', context, {"page":"toast"});\n            });\n        } else {\n            setupPage(\'toast\', context');
             });
 
             it('should set the link tag (for style sheet) on the page change.', function() {
