@@ -5,6 +5,8 @@ Generate a page.js client side router from a pageify-config.js file.
 
 #example pageify-config.js
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/simonmcmanus/pageify.svg)](https://greenkeeper.io/)
+
 ```js
 
   module.exports = {
